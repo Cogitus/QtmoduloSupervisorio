@@ -17,9 +17,12 @@ public:
   explicit MainWindow(QWidget *parent = 0);
   ~MainWindow();
   
-  void tcpConnect();
+
 public slots:
+  void tcpConnect();
   void putData();
+  void tcpDisconnect();
+
 private:
   Ui::MainWindow *ui;
   QTcpSocket *socket;
