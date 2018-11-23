@@ -12,9 +12,26 @@ MainWindow::MainWindow(QWidget *parent) :
           SIGNAL(clicked(bool)),
           this,
           SLOT(putData()));
+
+  // quando o pushButton_conectar for clicado, devemos conectar ao Servidor (incompleto)
+  connect(ui->pushButton_Conectar,
+          SIGNAL(clicked(bool)),
+          this,                     //dado que o método está no escopo da MainWindow, essa linha está certa,né?
+          SLOT(tcpConnect()));
+
+  // quando o pushButton_conectar for clicado, devemos conectar ao Servidor (incompleto)
+  connect(ui->pushButton_Desconectar,
+          SIGNAL(clicked(bool)),
+          this,
+          SLOT(tcpDisconnect()));
+
 }
 
 void MainWindow::tcpConnect(){
+    //LINHA TESTE
+    qDebug() << "CONECTADO";
+
+    /* DESCOMENTAR, DEPOIS
   socket->connectToHost("127.0.0.1",1234);
   if(socket->waitForConnected(3000)){
     qDebug() << "Connected";
@@ -22,6 +39,15 @@ void MainWindow::tcpConnect(){
   else{
     qDebug() << "Disconnected";
   }
+*/
+
+}
+
+void MainWindow::tcpDisconnect(){
+    qDebug() << "DESCONECSAO ARRETADA";
+
+    //existe o método void QAbstractSocket::disconnectFromHost()
+    //pesquisar depois
 }
 
 void MainWindow::putData(){
