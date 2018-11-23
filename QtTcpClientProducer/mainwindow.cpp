@@ -25,6 +25,19 @@ MainWindow::MainWindow(QWidget *parent) :
           this,
           SLOT(tcpDisconnect()));
 
+  // conecta o ui->horizontalSlider_Maximo com o ui->lcdNumber_Maximo
+  //ATENÇÃO! AINDA FALTA CONFIGURAR O VALOR MAXIMO
+  connect(ui->horizontalSlider_Maximo,
+          SIGNAL(valueChanged(int)),
+          ui->lcdNumber_Maximo,
+          SLOT(display(int)));
+
+  // conecta o ui->horizontalSlider_Minimo com o ui->lcdNumber_Minimo
+  //ATENÇÃO! AINDA FALTA CONFIGURAR O VALOR MINIMO
+  connect(ui->horizontalSlider_Minimo,
+          SIGNAL(valueChanged(int)),
+          ui->lcdNumber_Minimo,
+          SLOT(display(int)));
 }
 
 void MainWindow::tcpConnect(){
