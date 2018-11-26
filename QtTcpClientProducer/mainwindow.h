@@ -27,6 +27,7 @@ public slots:
   void setTiming();
 
 private:
+  int tempo = 1000; // tempo, em ms, do timing
   Ui::MainWindow *ui;
   QTcpSocket *socket;
 };
