@@ -43,7 +43,7 @@ MainWindow::MainWindow(QWidget *parent) :
   connect(ui->horizontalSlider_Timing,
           SIGNAL(valueChanged(int)),
           this,
-          SLOT(setTiming()));  // falta o SLOT
+          SLOT(setTiming()));  
 }
 
 void MainWindow::tcpConnect(){
