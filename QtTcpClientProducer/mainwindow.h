@@ -22,6 +22,7 @@ public slots:
   void tcpConnect();
   void putData();
   void tcpDisconnect();
+  void setTiming();
 
 private:
   Ui::MainWindow *ui;
