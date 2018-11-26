@@ -33,12 +33,12 @@
       <x>0</x>
       <y>10</y>
       <width>251</width>
-      <height>104</height>
+      <height>130</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QTextBrowser" name="textBrowser_IPdigitar"/>
+      <widget class="QLineEdit" name="lineEdit_IPdigitar"/>
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
@@ -84,6 +84,13 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
+      <widget class="QLabel" name="label_MAX">
+       <property name="text">
+        <string>MAX</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QSlider" name="horizontalSlider_Minimo">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -115,6 +122,13 @@
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QLabel" name="label_MIN">
+       <property name="text">
+        <string>MIN</string>
+       </property>
+      </widget>
+     </item>
      <item>
       <widget class="QSlider" name="horizontalSlider_Maximo">
        <property name="orientation">
