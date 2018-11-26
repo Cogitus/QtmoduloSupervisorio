@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
   tcpConnect();
 
   //inciando o Timer
-  startTimer(50);     // 50-millisecond timer
+  startTimer(tempo);
 
 
   connect(ui->pushButtonPut,
@@ -67,6 +67,7 @@ void MainWindow::tcpConnect(){
 }
 
 void MainWindow::setTiming(){
+    tempo = ui->horizontalSlider_Timing->value()*1000; // tempo, em ms
     QString valor = QString::number(ui->horizontalSlider_Timing->value());
     ui->label_ShowTiming->setText(valor); // devo passar o valor do horizontalSliderTiming
 
