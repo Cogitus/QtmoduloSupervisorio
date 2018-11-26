@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>374</width>
-    <height>327</height>
+    <width>487</width>
+    <height>315</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,91 +31,123 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>40</y>
-      <width>189</width>
-      <height>177</height>
+      <y>30</y>
+      <width>453</width>
+      <height>194</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout_3">
+    <layout class="QHBoxLayout" name="horizontalLayout_6">
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout">
+        <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
-          <widget class="QLineEdit" name="lineEdit_IPdigitar"/>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout">
+          <layout class="QVBoxLayout" name="verticalLayout">
            <item>
-            <widget class="QPushButton" name="pushButton_Conectar">
-             <property name="text">
-              <string>Conectar</string>
-             </property>
-            </widget>
+            <widget class="QLineEdit" name="lineEdit_IPdigitar"/>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_Desconectar">
-             <property name="text">
-              <string>Desconectar</string>
-             </property>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="QPushButton" name="pushButton_Conectar">
+               <property name="text">
+                <string>Conectar</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_Desconectar">
+               <property name="text">
+                <string>Desconectar</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <item>
+              <widget class="QLabel" name="label_MIN">
+               <property name="text">
+                <string>MIN</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSlider" name="horizontalSlider_Maximo">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLCDNumber" name="lcdNumber_Maximo">
+               <property name="frameShadow">
+                <enum>QFrame::Plain</enum>
+               </property>
+               <property name="segmentStyle">
+                <enum>QLCDNumber::Flat</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QLabel" name="label_MAX">
+               <property name="text">
+                <string>MAX</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSlider" name="horizontalSlider_Minimo">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLCDNumber" name="lcdNumber_Minimo">
+               <property name="frameShape">
+                <enum>QFrame::Box</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Plain</enum>
+               </property>
+               <property name="segmentStyle">
+                <enum>QLCDNumber::Flat</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
            <item>
-            <widget class="QLabel" name="label_MIN">
+            <widget class="QLabel" name="label_Timing">
              <property name="text">
-              <string>MIN</string>
+              <string>Timing(s)</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QSlider" name="horizontalSlider_Maximo">
+            <widget class="QSlider" name="horizontalSlider_Timing">
+             <property name="minimum">
+              <number>1</number>
+             </property>
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLCDNumber" name="lcdNumber_Maximo">
-             <property name="frameShadow">
-              <enum>QFrame::Plain</enum>
-             </property>
-             <property name="segmentStyle">
-              <enum>QLCDNumber::Flat</enum>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
-           <item>
-            <widget class="QLabel" name="label_MAX">
+            <widget class="QLabel" name="label_ShowTiming">
              <property name="text">
-              <string>MAX</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QSlider" name="horizontalSlider_Minimo">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLCDNumber" name="lcdNumber_Minimo">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Plain</enum>
-             </property>
-             <property name="segmentStyle">
-              <enum>QLCDNumber::Flat</enum>
+              <string>1</string>
              </property>
             </widget>
            </item>
@@ -124,28 +156,18 @@
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
          <item>
-          <widget class="QLabel" name="label_Timing">
+          <widget class="QPushButton" name="pushButton_IniciarTransmissao">
            <property name="text">
-            <string>Timing(s)</string>
+            <string>Iniciar</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QSlider" name="horizontalSlider_Timing">
-           <property name="minimum">
-            <number>1</number>
-           </property>
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_ShowTiming">
+          <widget class="QPushButton" name="pushButton_InterromperTransmissao">
            <property name="text">
-            <string>1</string>
+            <string>Interromper</string>
            </property>
           </widget>
          </item>
@@ -154,22 +176,7 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_5">
-       <item>
-        <widget class="QPushButton" name="pushButton_IniciarTransmissao">
-         <property name="text">
-          <string>Iniciar</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_InterromperTransmissao">
-         <property name="text">
-          <string>Interromper</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <widget class="QTextBrowser" name="textBrowser_Dados"/>
      </item>
     </layout>
    </widget>
@@ -179,7 +186,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>374</width>
+     <width>487</width>
      <height>21</height>
     </rect>
    </property>
