@@ -43,7 +43,7 @@ MainWindow::MainWindow(QWidget *parent) :
   connect(ui->horizontalSlider_Timing,
           SIGNAL(valueChanged(int)),
           this,
-          SLOT(setTiming()));  
+          SLOT(setTiming()));
 }
 
 void MainWindow::tcpConnect(){
@@ -65,6 +65,7 @@ void MainWindow::tcpConnect(){
 void MainWindow::setTiming(){
     QString valor = QString::number(ui->horizontalSlider_Timing->value());
     ui->label_ShowTiming->setText(valor); // devo passar o valor do horizontalSliderTiming
+    ui->textBrowser_Dados->setText(valor);
 }
 
 void MainWindow::tcpDisconnect(){
