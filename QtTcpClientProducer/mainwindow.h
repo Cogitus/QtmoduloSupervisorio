@@ -28,6 +28,7 @@ public slots:
 
 private:
   int tempo = 1000; // tempo, em ms, do timing
+  int temporizador; // guarda o timer em uso
   Ui::MainWindow *ui;
   QTcpSocket *socket;
 };
