@@ -8,6 +8,10 @@ MainWindow::MainWindow(QWidget *parent) :
   socket = new QTcpSocket(this);
   tcpConnect();
 
+  //inciando o Timer
+  startTimer(50);     // 50-millisecond timer
+
+
   connect(ui->pushButtonPut,
           SIGNAL(clicked(bool)),
           this,
@@ -65,7 +69,7 @@ void MainWindow::tcpConnect(){
 void MainWindow::setTiming(){
     QString valor = QString::number(ui->horizontalSlider_Timing->value());
     ui->label_ShowTiming->setText(valor); // devo passar o valor do horizontalSliderTiming
-    ui->textBrowser_Dados->setText(valor);
+
 }
 
 void MainWindow::tcpDisconnect(){
@@ -95,5 +99,11 @@ void MainWindow::putData(){
 
 MainWindow::~MainWindow(){
   delete socket;
-  delete ui;
+    delete ui;
+}
+
+void MainWindow::timerEvent(QTimerEvent *event)
+{
+    QString valor = QString::number(ui->horizontalSlider_Timing->value());
+    ui->textBrowser_Dados->setText(valor);
 }
