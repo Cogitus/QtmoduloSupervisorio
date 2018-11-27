@@ -168,7 +168,9 @@ MainWindow::~MainWindow(){
 
 void MainWindow::timerEvent(QTimerEvent *event)
 {
-    qDebug() << (qrand()%(limiteMaximo - limiteMinimo + 1)) + limiteMinimo;
+    QString msg = QString::number((qrand()%(limiteMaximo - limiteMinimo + 1)) + limiteMinimo);
+    ui->textBrowser_Dados->append(msg);
+    qDebug() << msg ;
 }
 
 //num = (rand() % (upper – lower + 1)) + lower
