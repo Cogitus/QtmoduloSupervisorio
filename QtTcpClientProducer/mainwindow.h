@@ -5,13 +5,14 @@
 #include <QTcpSocket>
 #include <QDebug>
 #include <QTimer>
+
 namespace Ui {
-class MainWindow;
+    class MainWindow;
 }
 
 class MainWindow : public QMainWindow
 {
-  Q_OBJECT
+  Q_OBJECT      //compilador QT
 
 public:
   explicit MainWindow(QWidget *parent = 0);
@@ -20,7 +21,7 @@ public:
 public:
     void timerEvent(QTimerEvent *event);
 
-public slots:
+public slots:       //slots = funções que promovem eventos uma vez que um dado SIGNAL é efetuado (APAGAR COMENTÁRIO DPS)
   void tcpConnect();
   void putData();
   void tcpDisconnect();

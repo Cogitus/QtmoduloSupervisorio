@@ -90,7 +90,7 @@ void MainWindow::putData(){
   QString str;
   qint64 msecdate;
 
-  if(socket->state()== QAbstractSocket::ConnectedState){
+  if(socket->state() == QAbstractSocket::ConnectedState){
 
     msecdate = QDateTime::currentDateTime().toMSecsSinceEpoch();
     str = "set "+ QString::number(msecdate) + " " + QString::number(qrand()%35)+"\r\n";
