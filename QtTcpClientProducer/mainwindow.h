@@ -34,7 +34,9 @@ private:
   int temporizador; // guarda o timer em uso
   Ui::MainWindow *ui;
   QTcpSocket *socket;
-  bool flagTemporizador;
+  bool flagTemporizador;    //identificador do meu timer (timer especifico (posso ter mais de um));
+  int limiteMinimo;         //limites dos números aleatórios gerados.
+  int limiteMaximo;
 };
 
 #endif // MAINWINDOW_H
