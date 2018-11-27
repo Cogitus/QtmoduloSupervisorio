@@ -28,6 +28,8 @@ public slots:       //slots = funções que promovem eventos uma vez que um dado
   void setTiming();
   void mataTemporizador();
   void reviveTemporizador();
+  void set_limiteMaximo();
+  void set_limiteMinimo();
 
 private:
   int tempo = 1000; // tempo, em ms, do timing
