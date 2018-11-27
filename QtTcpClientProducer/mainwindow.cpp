@@ -12,6 +12,9 @@ MainWindow::MainWindow(QWidget *parent) :
   temporizador = startTimer(tempo);
   flagTemporizador = true;      //o programa começa usando o temporizador
 
+  //iniciando os limites de envio
+  limiteMinimo = 1;
+  limiteMaximo = 3;
 
   connect(ui->pushButtonPut,
           SIGNAL(clicked(bool)),
@@ -148,7 +151,7 @@ void MainWindow::putData(){
   if(socket->state() == QAbstractSocket::ConnectedState){
 
     msecdate = QDateTime::currentDateTime().toMSecsSinceEpoch();
-    str = "set "+ QString::number(msecdate) + " " + QString::number(qrand()%35)+"\r\n";
+    str = "set "+ QString::number(msecdate) + " " + QString::number( (qrand()%(limiteMaximo - limiteMinimo + 1)) + limiteMinimo )+"\r\n";
 
       qDebug() << str;
       qDebug() << socket->write(str.toStdString().c_str()) << " bytes written";
@@ -165,5 +168,9 @@ MainWindow::~MainWindow(){
 
 void MainWindow::timerEvent(QTimerEvent *event)
 {
-    qDebug() << tempo;
+    qDebug() << (qrand()%(limiteMaximo - limiteMinimo + 1)) + limiteMinimo;
 }
+
+//num = (rand() % (upper – lower + 1)) + lower
+
+
