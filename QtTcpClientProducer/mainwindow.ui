@@ -27,7 +27,7 @@
      <string>putData</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -36,7 +36,10 @@
       <height>194</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_6">
+    <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="50,50">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>

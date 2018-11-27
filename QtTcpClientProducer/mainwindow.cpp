@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
   //inciando o Timer
   temporizador = startTimer(tempo);
+  flagTemporizador = true;      //o programa começa usando o temporizador
 
 
   connect(ui->pushButtonPut,
@@ -48,6 +49,19 @@ MainWindow::MainWindow(QWidget *parent) :
           SIGNAL(valueChanged(int)),
           this,
           SLOT(setTiming()));
+
+  //conecta o ui->pushButtom_IniciaTransmissao
+  connect(ui->pushButton_IniciarTransmissao,
+          SIGNAL(clicked(bool)),
+          this,
+          SLOT(reviveTemporizador()));
+
+  //conecta o ui->pushButtom_InterromperTransmissao
+  connect(ui->pushButton_InterromperTransmissao,
+          SIGNAL(clicked(bool)),
+          this,
+          SLOT(mataTemporizador()));
+
 }
 
 void MainWindow::tcpConnect(){
@@ -69,13 +83,32 @@ void MainWindow::tcpConnect(){
 void MainWindow::setTiming(){
     // atualização do tempo, no sistema
     tempo = ui->horizontalSlider_Timing->value()*1000; // tempo, em ms
-    killTimer(temporizador);
-    temporizador = startTimer(tempo);
+
+    if (flagTemporizador) {
+        killTimer(temporizador);
+        temporizador = startTimer(tempo);
+    }
 
     //atualização da label responsável por mostrar o timing em segundos
     QString valor = QString::number(ui->horizontalSlider_Timing->value());
     ui->label_ShowTiming->setText(valor); // devo passar o valor do horizontalSliderTiming
 
+}
+
+void MainWindow::mataTemporizador()
+{
+    if (flagTemporizador == true) {
+        killTimer(temporizador);
+        flagTemporizador = false;
+    }
+}
+
+void MainWindow::reviveTemporizador()
+{
+    if(flagTemporizador == false) {
+        temporizador = startTimer(tempo);
+        flagTemporizador = true;
+    }
 }
 
 void MainWindow::tcpDisconnect(){
