@@ -37,12 +37,24 @@ MainWindow::MainWindow(QWidget *parent) :
           ui->lcdNumber_Maximo,
           SLOT(display(int)));
 
+  //conecta o ui->horizontalSlider_Maximo com o slot set_limiteMaximo
+  connect(ui->horizontalSlider_Maximo,
+          SIGNAL(valueChanged(int)),
+          this,
+          SLOT(set_limiteMaximo()));
+
   // conecta o ui->horizontalSlider_Minimo com o ui->lcdNumber_Minimo
   //ATENÇÃO! AINDA FALTA CONFIGURAR O VALOR MINIMO
   connect(ui->horizontalSlider_Minimo,
           SIGNAL(valueChanged(int)),
           ui->lcdNumber_Minimo,
           SLOT(display(int)));
+
+  //conecta o ui->horizontalSlider_Minimo com o slot set_limiteMinimo
+  connect(ui->horizontalSlider_Minimo,
+          SIGNAL(valueChanged(int)),
+          this,
+          SLOT(set_limiteMinimo()));
 
   // conecta o ui->horizontalSlider_Timing com o ui->textBrowser_Timing
   connect(ui->horizontalSlider_Timing,
@@ -109,6 +121,16 @@ void MainWindow::reviveTemporizador()
         temporizador = startTimer(tempo);
         flagTemporizador = true;
     }
+}
+
+void MainWindow::set_limiteMaximo(){
+    limiteMaximo = ui->horizontalSlider_Maximo->value();
+    qDebug() <<" limite maximo = " << limiteMaximo;
+}
+
+void MainWindow::set_limiteMinimo(){
+    limiteMinimo = ui->horizontalSlider_Minimo->value();
+    qDebug() <<" limite minimo = " << limiteMinimo;
 }
 
 void MainWindow::tcpDisconnect(){
