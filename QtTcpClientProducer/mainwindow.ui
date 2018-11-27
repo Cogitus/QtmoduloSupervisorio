@@ -70,9 +70,9 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_3">
              <item>
-              <widget class="QLabel" name="label_MIN">
+              <widget class="QLabel" name="label_MAX">
                <property name="text">
-                <string>MIN</string>
+                <string>MAX</string>
                </property>
               </widget>
              </item>
@@ -98,9 +98,9 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_2">
              <item>
-              <widget class="QLabel" name="label_MAX">
+              <widget class="QLabel" name="label_MIN">
                <property name="text">
-                <string>MAX</string>
+                <string>MIN</string>
                </property>
               </widget>
              </item>
