@@ -4,13 +4,10 @@
 
 MainWindow::MainWindow(QWidget *parent) :
   QMainWindow(parent), ui(new Ui::MainWindow){
+
   ui->setupUi(this);
   socket = new QTcpSocket(this);
-  tcpConnect();
 
-  //inciando o Timer
-  temporizador = startTimer(tempo);
-  flagTemporizador = true;      //o programa começa usando o temporizador
 
   //iniciando os limites de envio
   limiteMinimo = 1;
@@ -76,11 +73,8 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 
 void MainWindow::tcpConnect(){
-    //LINHA TESTE
-    qDebug() << "CONECTADO";
 
-
-  socket->connectToHost("127.0.0.1",1234);
+  socket->connectToHost(ui->lineEdit_IPdigitar->text(),1234);
   if(socket->waitForConnected(3000)){
     qDebug() << "Connected";
   }
@@ -116,6 +110,7 @@ void MainWindow::mataTemporizador()
 
 void MainWindow::reviveTemporizador()
 {
+
     if(flagTemporizador == false) {
         temporizador = startTimer(tempo);
         flagTemporizador = true;
@@ -132,11 +127,11 @@ void MainWindow::set_limiteMinimo(){
     qDebug() <<" limite minimo = " << limiteMinimo;
 }
 
-void MainWindow::tcpDisconnect(){
-    qDebug() << "DESCONECSAO ARRETADA";
 
+void MainWindow::tcpDisconnect(){
     //existe o método void QAbstractSocket::disconnectFromHost()
     //pesquisar depois
+    socket->disconnectFromHost();
 }
 
 void MainWindow::putData(){
