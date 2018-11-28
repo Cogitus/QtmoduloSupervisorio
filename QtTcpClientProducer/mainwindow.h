@@ -39,6 +39,7 @@ private:
   bool flagTemporizador;    //identificador do meu timer (timer especifico (posso ter mais de um));
   int limiteMinimo;         //limites dos números aleatórios gerados.
   int limiteMaximo;
+  QString dado;
 };
 
 #endif // MAINWINDOW_H
