@@ -16,10 +16,6 @@ MainWindow::MainWindow(QWidget *parent) :
   limiteMinimo = 1;
   limiteMaximo = 3;
 
-  connect(ui->pushButtonPut,
-          SIGNAL(clicked(bool)),
-          this,
-          SLOT(putData()));
 
   // quando o pushButton_conectar for clicado, devemos conectar ao Servidor (incompleto)
   connect(ui->pushButton_Conectar,
@@ -83,7 +79,7 @@ void MainWindow::tcpConnect(){
     //LINHA TESTE
     qDebug() << "CONECTADO";
 
-    /* DESCOMENTAR, DEPOIS
+
   socket->connectToHost("127.0.0.1",1234);
   if(socket->waitForConnected(3000)){
     qDebug() << "Connected";
@@ -91,7 +87,7 @@ void MainWindow::tcpConnect(){
   else{
     qDebug() << "Disconnected";
   }
-*/
+
 
 }
 
@@ -151,7 +147,8 @@ void MainWindow::putData(){
   if(socket->state() == QAbstractSocket::ConnectedState){
 
     msecdate = QDateTime::currentDateTime().toMSecsSinceEpoch();
-    str = "set "+ QString::number(msecdate) + " " + QString::number( (qrand()%(limiteMaximo - limiteMinimo + 1)) + limiteMinimo )+"\r\n";
+    str = "set "+ QString::number(msecdate) + " " + dado +"\r\n";
+    ui->textBrowser_Dados->append(str);
 
       qDebug() << str;
       qDebug() << socket->write(str.toStdString().c_str()) << " bytes written";
@@ -168,9 +165,9 @@ MainWindow::~MainWindow(){
 
 void MainWindow::timerEvent(QTimerEvent *event)
 {
-    QString msg = QString::number((qrand()%(limiteMaximo - limiteMinimo + 1)) + limiteMinimo);
-    ui->textBrowser_Dados->append(msg);
-    qDebug() << msg ;
+    dado = QString::number((qrand()%(limiteMaximo - limiteMinimo + 1)) + limiteMinimo);
+    putData();
+    qDebug() << dado ;
 }
 
 //num = (rand() % (upper – lower + 1)) + lower
