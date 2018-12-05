@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>344</width>
-    <height>312</height>
+    <width>796</width>
+    <height>491</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="pushButtonGet">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>210</y>
+      <x>500</x>
+      <y>120</y>
       <width>101</width>
       <height>29</height>
      </rect>
@@ -27,105 +27,149 @@
      <string>getData</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_IPdoServidor">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>91</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>IP do servidor</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_Timing">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>170</y>
-      <width>66</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Timing</string>
-    </property>
-   </widget>
-   <widget class="QSlider" name="horizontalSlider_Timing">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>190</y>
-      <width>160</width>
-      <height>19</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_Iniciar">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>210</y>
-      <width>98</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Iniciar</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_Interromper">
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>210</y>
-      <width>98</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Interromper</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>50</y>
-      <width>195</width>
-      <height>33</height>
+      <y>10</y>
+      <width>258</width>
+      <height>380</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <widget class="QPushButton" name="pushButton_Conectar">
+      <widget class="QLabel" name="label_IPdoServidor">
        <property name="text">
-        <string>Conectar</string>
+        <string>IP do servidor</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_Desconectar">
-       <property name="text">
-        <string>Desconectar</string>
-       </property>
-      </widget>
+      <widget class="QLineEdit" name="lineEdit_recebeIP"/>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QPushButton" name="pushButton_Conectar">
+         <property name="text">
+          <string>Conectar</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_Desconectar">
+         <property name="text">
+          <string>Desconectar</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QListWidget" name="listWidget_lPs"/>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_atualizarIPs">
+         <property name="text">
+          <string>Atualizar</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_TimingTitle">
+           <property name="text">
+            <string>Timing</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSlider" name="horizontalSlider_Timing">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_timeChanging">
+         <property name="text">
+          <string>1</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QPushButton" name="pushButton_Iniciar">
+         <property name="text">
+          <string>Iniciar</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_Interromper">
+         <property name="text">
+          <string>Interromper</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>
+   <zorder>pushButtonGet</zorder>
+   <zorder>label_IPdoServidor</zorder>
+   <zorder>label_TimingTitle</zorder>
+   <zorder>horizontalSlider_Timing</zorder>
+   <zorder>pushButton_Iniciar</zorder>
+   <zorder>pushButton_Interromper</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>listWidget_lPs</zorder>
+   <zorder>label_TimingTitle</zorder>
+   <zorder>label_timeChanging</zorder>
+   <zorder>lineEdit_recebeIP</zorder>
+   <zorder>pushButton_atualizarIPs</zorder>
+   <zorder>label_timeChanging</zorder>
+   <zorder>label_timeChanging</zorder>
+   <zorder>horizontalSpacer</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>344</width>
-     <height>27</height>
+     <width>796</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>

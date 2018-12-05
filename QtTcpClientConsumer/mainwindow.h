@@ -18,8 +18,11 @@ public:
   ~MainWindow();
   
   void tcpConnect();
+
 public slots:
   void getData();
+
+
 private:
   Ui::MainWindow *ui;
   QTcpSocket *socket;
