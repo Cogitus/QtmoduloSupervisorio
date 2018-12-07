@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QTcpSocket>
 #include <QDebug>
+#include <QVector>
 
 namespace Ui {
 class MainWindow;
@@ -16,16 +17,18 @@ class MainWindow : public QMainWindow
 public:
   explicit MainWindow(QWidget *parent = 0);
   ~MainWindow();
-  
-  void tcpConnect();
+
 
 public slots:
   void getData();
+  void tcpConnect();
 
 
 private:
   Ui::MainWindow *ui;
   QTcpSocket *socket;
+
+
 };
 
 #endif // MAINWINDOW_H

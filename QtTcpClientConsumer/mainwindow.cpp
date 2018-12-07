@@ -19,14 +19,23 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
   //conecta a barra de ajuste do tempo com o valor apresentado dela ao lado.
-  connect (ui->horizontalSlider_Timing,
-           SIGNAL(valueChanged(int)),
-           ui->label_timeChanging,
-           SLOT(setNum(int)));
+  connect(ui->horizontalSlider_Timing,
+          SIGNAL(valueChanged(int)),
+          ui->label_timeChanging,
+          SLOT(setNum(int)));
+
+
+  //conecta o botão conecta com o tcpConnect()
+  connect(ui->pushButton_Conectar,
+          SIGNAL(clicked(bool)),
+          this,
+          SLOT(tcpConnect()));
+
+
 }
 
 void MainWindow::tcpConnect(){
-  socket->connectToHost("127.0.0.1",1234);
+  socket->connectToHost(ui->lineEdit_recebeIP->text(),1234);
   if(socket->waitForConnected(3000)){
     qDebug() << "Connected";
   }
@@ -34,6 +43,7 @@ void MainWindow::tcpConnect(){
     qDebug() << "Disconnected";
   }
 }
+
 
 void MainWindow::getData(){
   QString str;
