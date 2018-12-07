@@ -121,8 +121,10 @@ void MainWindow::listarIP(){
 
 // pesquisar o signal "item activated", a ser usado no if antes do botão "atualizar"
 void MainWindow::atualizarIP(){
-    ip_atual = ui->listWidget_lPs->currentItem();
-    qDebug() << "clicaou-se no item "<< ip_atual;
+    QListWidgetItem* ponteiro_atual = ui->listWidget_lPs->currentItem();
+    ip_atual = *ponteiro_atual;
+    qDebug() << "clicaou-se no item "<< ip_atual.text();
+
 }
 
 MainWindow::~MainWindow()

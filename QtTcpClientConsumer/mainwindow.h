@@ -30,7 +30,7 @@ public slots:
 private:
   Ui::MainWindow *ui;
   QTcpSocket *socket;
-  QListWidgetItem* ip_atual;
+  QListWidgetItem ip_atual;
 
 
 };
