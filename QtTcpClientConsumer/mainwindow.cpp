@@ -10,10 +10,19 @@ MainWindow::MainWindow(QWidget *parent) :
   socket = new QTcpSocket(this);
   tcpConnect();
 
+
+  //CONEXÕES
   connect(ui->pushButtonGet,
           SIGNAL(clicked(bool)),
           this,
           SLOT(getData()));
+
+
+  //conecta a barra de ajuste do tempo com o valor apresentado dela ao lado.
+  connect (ui->horizontalSlider_Timing,
+           SIGNAL(valueChanged(int)),
+           ui->label_timeChanging,
+           SLOT(setNum(int)));
 }
 
 void MainWindow::tcpConnect(){
