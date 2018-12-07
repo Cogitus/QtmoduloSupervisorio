@@ -37,6 +37,12 @@ MainWindow::MainWindow(QWidget *parent) :
           this,
           SLOT(tcpDisconnect()));
 
+  //conecta o botão  ui->pushButton_atualizarIPs com o SLOT listarIP
+  connect(ui->pushButton_atualizarIPs,
+          SIGNAL(clicked(bool)),
+          this,
+          SLOT(listarIP()));
+
 }
 
 void MainWindow::tcpConnect(){
@@ -86,6 +92,26 @@ void MainWindow::getData(){
   }
 }
 
+void MainWindow::listarIP(){
+    QString str;
+    QStringList list;
+    qDebug() << "to get data...";
+    if(socket->state() == QAbstractSocket::ConnectedState){
+      if(socket->isOpen()){
+        qDebug() << "reading...";
+        socket->write("list");
+        socket->waitForBytesWritten();
+        socket->waitForReadyRead();
+        qDebug() << socket->bytesAvailable();
+        ui->listWidget_lPs->clear();
+        while(socket->bytesAvailable()){
+          str = socket->readLine().replace("\n","").replace("\r","");
+          ui->listWidget_lPs->addItem(str);
+          qDebug() <<"IPS recebebidos: "<< str;
+        }
+      }
+    }
+}
 
 MainWindow::~MainWindow()
 {
