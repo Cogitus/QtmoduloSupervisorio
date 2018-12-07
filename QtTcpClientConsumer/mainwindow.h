@@ -28,6 +28,7 @@ public slots:
 private:
   Ui::MainWindow *ui;
   QTcpSocket *socket;
+  QString ip_produtor;
 
 
 };
