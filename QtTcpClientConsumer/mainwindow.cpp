@@ -31,6 +31,11 @@ MainWindow::MainWindow(QWidget *parent) :
           this,
           SLOT(tcpConnect()));
 
+  //conecta o botão desconectar com o tcpDisconnect()
+  connect(ui->pushButton_Desconectar,
+          SIGNAL(clicked(bool)),
+          this,
+          SLOT(tcpDisconnect()));
 
 }
 
@@ -42,6 +47,14 @@ void MainWindow::tcpConnect(){
   else{
     qDebug() << "Disconnected";
   }
+}
+
+void MainWindow::tcpDisconnect()
+{
+    //existe o método void QAbstractSocket::disconnectFromHost()
+    //pesquisar depois
+    socket->disconnectFromHost();
+
 }
 
 
