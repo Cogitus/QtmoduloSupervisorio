@@ -23,6 +23,7 @@ public slots:
   void getData();
   void tcpConnect();
   void tcpDisconnect();
+  void listarIP();
 
 private:
   Ui::MainWindow *ui;
