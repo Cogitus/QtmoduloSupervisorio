@@ -22,7 +22,7 @@ public:
 public slots:
   void getData();
   void tcpConnect();
-
+  void tcpDisconnect();
 
 private:
   Ui::MainWindow *ui;
