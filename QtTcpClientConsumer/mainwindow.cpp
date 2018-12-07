@@ -43,6 +43,12 @@ MainWindow::MainWindow(QWidget *parent) :
           this,
           SLOT(listarIP()));
 
+  //conecta o ato de clicar em um item no ui->listWidget_lPs, coma a atualização do ip_atual
+  connect(ui->listWidget_lPs,
+          SIGNAL(itemSelectionChanged()),
+          this,
+          SLOT(atualizarIP()));
+
 }
 
 void MainWindow::tcpConnect(){
@@ -111,6 +117,12 @@ void MainWindow::listarIP(){
         }
       }
     }
+}
+
+// pesquisar o signal "item activated", a ser usado no if antes do botão "atualizar"
+void MainWindow::atualizarIP(){
+    ip_atual = ui->listWidget_lPs->currentItem();
+    qDebug() << "clicaou-se no item "<< ip_atual;
 }
 
 MainWindow::~MainWindow()

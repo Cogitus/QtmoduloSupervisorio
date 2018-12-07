@@ -5,6 +5,7 @@
 #include <QTcpSocket>
 #include <QDebug>
 #include <QVector>
+#include <QListWidgetItem>
 
 namespace Ui {
 class MainWindow;
@@ -24,11 +25,12 @@ public slots:
   void tcpConnect();
   void tcpDisconnect();
   void listarIP();
+  void atualizarIP();
 
 private:
   Ui::MainWindow *ui;
   QTcpSocket *socket;
-  QString ip_produtor;
+  QListWidgetItem* ip_atual;
 
 
 };
