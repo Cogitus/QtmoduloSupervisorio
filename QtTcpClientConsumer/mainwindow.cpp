@@ -147,10 +147,11 @@ void MainWindow::getData(){
           str = list.at(0);
           thetime = str.toLongLong(&ok);
           str = list.at(1);
-          qDebug() << thetime << ": " << str;
+          //qDebug() << thetime << ": " << str;
         }
       }
       dados = list;
+      ui->widget_Plotter->atualizaPontos(dados);
     }
   }
 }
