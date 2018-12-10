@@ -21,8 +21,8 @@ MainWindow::MainWindow(QWidget *parent) :
   //conecta a barra de ajuste do tempo com o valor apresentado dela ao lado.
   connect(ui->horizontalSlider_Timing,
           SIGNAL(valueChanged(int)),
-          ui->label_timeChanging,
-          SLOT(setNum(int)));
+          this,
+          SLOT(setTiming()));
 
 
   //conecta o botão conecta com o tcpConnect()
@@ -49,10 +49,61 @@ MainWindow::MainWindow(QWidget *parent) :
           this,
           SLOT(atualizarIP()));
 
+  //conecta o ui->pushButtom_IniciaTransmissao
+  connect(ui->pushButton_Iniciar,
+          SIGNAL(clicked(bool)),
+          this,
+          SLOT(reviveTemporizador()));
+
+
+  //conecta o ui->pushButtom_InterromperTransmissao
+  connect(ui->pushButton_Interromper,
+          SIGNAL(clicked(bool)),
+          this,
+          SLOT(mataTemporizador()));
+
 }
 
 
 
+//Ações do temporizador.
+void MainWindow::mataTemporizador()
+{
+    if (flagTemporizador == true) {
+        killTimer(temporizador);
+        flagTemporizador = false;
+    }
+}
+
+
+void MainWindow::reviveTemporizador()
+{
+
+    if(flagTemporizador == false) {
+        temporizador = startTimer(tempo);
+        flagTemporizador = true;
+    }
+}
+
+
+void MainWindow::setTiming(){
+    // atualização do tempo, no sistema
+    tempo = ui->horizontalSlider_Timing->value()*100; // tempo, em ms
+
+    if (flagTemporizador) {
+        killTimer(temporizador);
+        temporizador = startTimer(tempo);
+    }
+
+    //atualização da label responsável por mostrar o timing em segundos
+    QString valor = QString::number(ui->horizontalSlider_Timing->value());
+    ui->label_timeChanging->setText(valor); // devo passar o valor do horizontalSliderTiming
+
+}
+
+
+
+//OUTRAS FUNÇÕES NÃO HERDADAS
 void MainWindow::tcpConnect(){
   socket->connectToHost(ui->lineEdit_recebeIP->text(),1234);
   if(socket->waitForConnected(3000)){
@@ -133,6 +184,14 @@ void MainWindow::atualizarIP(){
     QListWidgetItem* ponteiro_atual = ui->listWidget_lPs->currentItem();
     ip_atual = *ponteiro_atual;
     qDebug() << "clicaou-se no item "<< ip_atual.text();
+}
+
+
+
+void MainWindow::timerEvent(QTimerEvent *event)
+{
+    getData();
+    //qDebug() << dado;             aqui queremos printar os dados recebidos.
 }
 
 

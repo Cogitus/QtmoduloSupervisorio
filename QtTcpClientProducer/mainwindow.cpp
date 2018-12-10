@@ -87,7 +87,7 @@ void MainWindow::tcpConnect(){
 
 void MainWindow::setTiming(){
     // atualização do tempo, no sistema
-    tempo = ui->horizontalSlider_Timing->value()*1000; // tempo, em ms
+    tempo = ui->horizontalSlider_Timing->value()*100; // tempo, em ms
 
     if (flagTemporizador) {
         killTimer(temporizador);
