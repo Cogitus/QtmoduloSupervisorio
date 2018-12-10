@@ -2,6 +2,7 @@
 #include <QPainter>
 #include <QBrush>
 #include <QPen>
+#include <QDebug>
 
 Plotter::Plotter(QWidget *parent) : QWidget(parent)
 {
@@ -13,6 +14,9 @@ void Plotter::paintEvent(QPaintEvent *event)
     QPainter painter(this);
     QBrush brush;
     QPen pen;
+
+    int indice_menor, indice_maior;
+    float y_posterior, y_anterior;
 
     painter.setRenderHint(QPainter::Antialiasing);
 
@@ -37,14 +41,21 @@ void Plotter::paintEvent(QPaintEvent *event)
         painter.drawLine(0, i, width(), i);
     }
 
+    indice_maior = acharMax();
+    indice_menor = acharMin();
+
 }
+
+
 
 int Plotter::acharMax()
 {
+    bool ok;
     int index = 0;
     for(int i = 1; i<pontos.length(); i++){
-        if(pontos.at(i) > pontos.at(i-1)){
+        if(pontos.at(i).toInt(&ok) > pontos.at(i-1).toInt(&ok)){
             index = i;
+            //qDebug() << "acharMax = "<< pontos.at(index).toInt(&ok);
         }
     }
     return index;
@@ -52,11 +63,13 @@ int Plotter::acharMax()
 
 int Plotter::acharMin()
 {
+    bool ok;
     int index = 0;
     for(int i = 1; i<pontos.length(); i++){
-        if(pontos.at(i) < pontos.at(i-1)){
+        if(pontos.at(i).toInt(&ok) < pontos.at(i-1).toInt(&ok)){
             index = i;
         }
+        qDebug() << "acharMin = "<< pontos.at(index).toInt(&ok);
     }
     return index;
 }
@@ -64,5 +77,7 @@ int Plotter::acharMin()
 void Plotter::atualizaPontos(QStringList novosPontos)
 {
     pontos = novosPontos ;
+    //qDebug() <<"chamou o atualizaPontos";
+    repaint();
 }
 
