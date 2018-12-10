@@ -18,6 +18,10 @@ private:
 signals:
 
 public slots:
+     /**
+     * @brief atualizaPontos é o método responsável por atualizar a lista de pontos definida na variável pontos.
+     */
+    void atualizaPontos(QStringList novosPontos);
 };
 
 #endif // PLOTTER_H
