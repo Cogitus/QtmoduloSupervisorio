@@ -51,6 +51,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
 }
 
+
+
 void MainWindow::tcpConnect(){
   socket->connectToHost(ui->lineEdit_recebeIP->text(),1234);
   if(socket->waitForConnected(3000)){
@@ -60,6 +62,8 @@ void MainWindow::tcpConnect(){
     qDebug() << "Disconnected";
   }
 }
+
+
 
 void MainWindow::tcpDisconnect()
 {
@@ -98,6 +102,8 @@ void MainWindow::getData(){
   }
 }
 
+
+
 void MainWindow::listarIP(){
     QString str;
     QStringList list;
@@ -119,6 +125,8 @@ void MainWindow::listarIP(){
     }
 }
 
+
+
 // pesquisar o signal "item activated", a ser usado no if antes do botão "atualizar"
 void MainWindow::atualizarIP(){
     QListWidgetItem* ponteiro_atual = ui->listWidget_lPs->currentItem();
@@ -126,6 +134,8 @@ void MainWindow::atualizarIP(){
     qDebug() << "clicaou-se no item "<< ip_atual.text();
 
 }
+
+
 
 MainWindow::~MainWindow()
 {
