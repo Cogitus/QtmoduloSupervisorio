@@ -133,7 +133,7 @@ void MainWindow::getData(){
   qDebug() << "to get data...";
   if(socket->state() == QAbstractSocket::ConnectedState){
     if(socket->isOpen()){
-      QString comando = "get " + ip_atual.text() + " 5\r\n"  ;
+      QString comando = "get " + ip_atual.text() + " 10\r\n"  ;
       qDebug() << "reading..."; //toStdString().c_str()
       socket->write(comando.toStdString().c_str());
       socket->waitForBytesWritten();
@@ -150,6 +150,7 @@ void MainWindow::getData(){
           qDebug() << thetime << ": " << str;
         }
       }
+      dados = list;
     }
   }
 }
