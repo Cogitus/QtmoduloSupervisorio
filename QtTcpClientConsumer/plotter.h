@@ -10,6 +10,11 @@ public:
     explicit Plotter(QWidget *parent = nullptr);
     void paintEvent(QPaintEvent *event);
 
+private:
+    /**
+     * @brief pontos recebe a lista de dados oriunda de QListWidget, na tela de usuário.
+     */
+    QStringList pontos;
 signals:
 
 public slots:
