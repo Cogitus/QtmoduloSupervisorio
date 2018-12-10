@@ -153,7 +153,7 @@
       </layout>
      </item>
      <item>
-      <widget class="Plotter" name="widget" native="true"/>
+      <widget class="Plotter" name="widget_Plotter" native="true"/>
      </item>
     </layout>
    </widget>
@@ -164,7 +164,7 @@
      <x>0</x>
      <y>0</y>
      <width>867</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
