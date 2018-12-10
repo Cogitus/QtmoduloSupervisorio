@@ -38,3 +38,9 @@ void Plotter::paintEvent(QPaintEvent *event)
     }
 
 }
+
+void Plotter::atualizaPontos(QStringList novosPontos)
+{
+    pontos = novosPontos ;
+}
+
