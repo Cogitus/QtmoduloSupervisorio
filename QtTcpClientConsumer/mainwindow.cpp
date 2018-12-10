@@ -82,8 +82,9 @@ void MainWindow::getData(){
   qDebug() << "to get data...";
   if(socket->state() == QAbstractSocket::ConnectedState){
     if(socket->isOpen()){
-      qDebug() << "reading...";
-      socket->write("get 127.0.0.1 5\r\n");
+      QString comando = "get " + ip_atual.text() + " 5\r\n"  ;
+      qDebug() << "reading..."; //toStdString().c_str()
+      socket->write(comando.toStdString().c_str());
       socket->waitForBytesWritten();
       socket->waitForReadyRead();
       qDebug() << socket->bytesAvailable();
@@ -132,7 +133,6 @@ void MainWindow::atualizarIP(){
     QListWidgetItem* ponteiro_atual = ui->listWidget_lPs->currentItem();
     ip_atual = *ponteiro_atual;
     qDebug() << "clicaou-se no item "<< ip_atual.text();
-
 }
 
 
