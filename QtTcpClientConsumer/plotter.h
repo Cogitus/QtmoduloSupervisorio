@@ -22,6 +22,16 @@ public slots:
      * @brief atualizaPontos é o método responsável por atualizar a lista de pontos definida na variável pontos.
      */
     void atualizaPontos(QStringList novosPontos);
+    /**
+     * @brief acharMax é responsável por descobrir o índice do maior número na lista de pontos.
+     * @return o índice do maior valor.
+     */
+    int acharMax();
+    /**
+     * @brief acharMin é responsável por descobrir o índice do menor número na lista de pontos.
+     * @return o índice do menor valor.
+     */
+    int acharMin();
 };
 
 #endif // PLOTTER_H
