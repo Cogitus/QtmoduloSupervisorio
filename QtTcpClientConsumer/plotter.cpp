@@ -39,6 +39,28 @@ void Plotter::paintEvent(QPaintEvent *event)
 
 }
 
+int Plotter::acharMax()
+{
+    int index = 0;
+    for(int i = 1; i<pontos.length(); i++){
+        if(pontos.at(i) > pontos.at(i-1)){
+            index = i;
+        }
+    }
+    return index;
+}
+
+int Plotter::acharMin()
+{
+    int index = 0;
+    for(int i = 1; i<pontos.length(); i++){
+        if(pontos.at(i) < pontos.at(i-1)){
+            index = i;
+        }
+    }
+    return index;
+}
+
 void Plotter::atualizaPontos(QStringList novosPontos)
 {
     pontos = novosPontos ;
