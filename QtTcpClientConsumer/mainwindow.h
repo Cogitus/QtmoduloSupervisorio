@@ -61,6 +61,10 @@ private:
    * @brief flagTemporizador guarda a informação que indica se algum timerEvent está executando.
    */
   bool flagTemporizador;    //identificador do meu timer (timer especifico (posso ter mais de um));
+  /**
+   * @brief dados lista os dados recebidos pela função getData.
+   */
+  QStringList dados;
 
 
 };
