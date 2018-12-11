@@ -12,11 +12,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
   //CONEXÕES
-  connect(ui->pushButtonGet,
-          SIGNAL(clicked(bool)),
-          this,
-          SLOT(getData()));
-
 
   //conecta a barra de ajuste do tempo com o valor apresentado dela ao lado.
   connect(ui->horizontalSlider_Timing,
