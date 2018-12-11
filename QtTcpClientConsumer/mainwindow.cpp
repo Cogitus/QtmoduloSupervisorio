@@ -157,7 +157,7 @@ void MainWindow::getData(){
         }
       }
       qDebug() << "lista = "<< dados;
-      //ui->widget_Plotter->atualizaPontos(dados);
+      ui->widget_Plotter->atualizaPontos(dados);
     }
   }
 }
