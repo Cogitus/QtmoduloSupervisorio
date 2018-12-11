@@ -50,27 +50,23 @@ void Plotter::paintEvent(QPaintEvent *event)
 
 int Plotter::acharMax()
 {
-    bool ok;
     int index = 0;
- /*   for(int i = 1; i<pontos.length(); i++){
-        if(pontos.at(i).toInt(&ok) > pontos.at(i-1).toInt(&ok)){
+    for(int i = 1; i<pontos.length()-1; i++){
+        if(pontos.at(i) > pontos.at(i-1)){
             index = i;
-            //qDebug() << "acharMax = "<< pontos.at(index).toInt(&ok);
         }
-    } */
+    }
     return index;
 }
 
 int Plotter::acharMin()
 {
-    bool ok;
     int index = 0;
- /*   for(int i = 1; i<pontos.length(); i++){
-        if(pontos.at(i).toInt(&ok) < pontos.at(i-1).toInt(&ok)){
+    for(int i = 1; i<pontos.length()-1; i++){
+        if(pontos.at(i) < pontos.at(i-1)){
             index = i;
         }
-        qDebug() << "acharMin = "<< pontos.at(index).toInt(&ok);
-       } */
+    }
     return index;
 }
 
