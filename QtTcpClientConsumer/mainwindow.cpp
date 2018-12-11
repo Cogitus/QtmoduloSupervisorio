@@ -130,7 +130,11 @@ void MainWindow::getData(){
   QByteArray array;
   QStringList list;
   qint64 thetime;
+
   qDebug() << "to get data...";
+
+  dados.erase(dados.begin(),dados.end());
+
   if(socket->state() == QAbstractSocket::ConnectedState){
     if(socket->isOpen()){
       QString comando = "get " + ip_atual.text() + " 10\r\n"  ;
@@ -142,16 +146,18 @@ void MainWindow::getData(){
       while(socket->bytesAvailable()){
         str = socket->readLine().replace("\n","").replace("\r","");
         list = str.split(" ");
+
         if(list.size() == 2){
           bool ok;
           str = list.at(0);
           thetime = str.toLongLong(&ok);
           str = list.at(1);
+          dados.append(str.toInt(&ok));
           //qDebug() << thetime << ": " << str;
         }
       }
-      dados = list;
-      ui->widget_Plotter->atualizaPontos(dados);
+      qDebug() << "lista = "<< dados;
+      //ui->widget_Plotter->atualizaPontos(dados);
     }
   }
 }
