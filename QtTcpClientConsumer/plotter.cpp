@@ -43,6 +43,18 @@ void Plotter::paintEvent(QPaintEvent *event)
 
     indice_maior = acharMax();
     indice_menor = acharMin();
+    bool ok;
+
+    pen.setColor(QColor(255, 0, 0));
+    pen.setWidth(1);
+    painter.setPen(pen);
+
+    for(int i = 1; i<pontos.length()-1; i ++){
+        y_posterior = ((float)pontos.at(i)-pontos.at(indice_menor)) / (pontos.at(indice_maior)-pontos.at(indice_menor));
+        y_anterior = ((float)pontos.at(i-1)-pontos.at(indice_menor)) / (pontos.at(indice_maior)-pontos.at(indice_menor));
+        qDebug() <<"y_posterior = " <<y_posterior<<" e y_anterior = "<<y_anterior;
+        painter.drawLine(width()/10*(i-1), y_anterior*height(), width()/10*(i), y_posterior*height());
+    }
 
 }
 
