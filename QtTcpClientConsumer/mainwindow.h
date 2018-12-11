@@ -88,7 +88,7 @@ private:
   /**
    * @brief dados lista os dados recebidos pela função getData.
    */
-  QStringList dados;
+  QList<int> dados;
 
 
 };
