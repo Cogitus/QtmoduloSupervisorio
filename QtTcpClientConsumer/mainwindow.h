@@ -26,10 +26,25 @@ public:
 
 
 public slots:
+    /**
+   * @brief getData é responsável por recuperar os 10 últimos valores que o servidor recebeu, para um dado produtor.
+   */
   void getData();
+  /**
+   * @brief tcpConnect é responsável por conectar o consumidor de dados ao socket do servidor.
+   */
   void tcpConnect();
+  /**
+   * @brief tcpDisconnect é responsável por desconectar o consumidor de dados ao socket do servidor.
+   */
   void tcpDisconnect();
+  /**
+   * @brief listarIP é responsável por listar os IPs que enviaram dados ao servidor.
+   */
   void listarIP();
+  /**
+   * @brief atualizarIP é responsável por resgatar o IP selecionado.
+   */
   void atualizarIP();
   /**
    * @brief setTiming é o SLOT responsável por atualizar o valor do estado tempo e resetar o timerEvent relativo ao estado temporizador.
@@ -46,8 +61,17 @@ public slots:
 
 
 private:
+  /**
+   * @brief ui é um ponteiro para a interface do usuário.
+   */
   Ui::MainWindow *ui;
+  /**
+   * @brief socket é a conexão realizada com o servidor.
+   */
   QTcpSocket *socket;
+  /**
+   * @brief ip_atual é a seleção realizada no ListWidget.
+   */
   QListWidgetItem ip_atual;
   /**
    * @brief tempo registra o período de execução do loop timerEvent, em milissegundos.
